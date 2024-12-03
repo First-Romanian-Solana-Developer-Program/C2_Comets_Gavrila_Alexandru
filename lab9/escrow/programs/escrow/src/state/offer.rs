@@ -1,7 +1,12 @@
 use anchor_lang::prelude::*;
+#[account]
+#[derive(InitSpace)]
 
-#[error_code]
-pub enum ErrorCode {
-    #[msg("Custom error message")]
-    CustomError,
+pub struct Offer {
+    pub id: u64,
+    pub maker: Pubkey,
+    pub token_mint_a: Pubkey,
+    pub token_mint_b: Pubkey,
+    pub token_b_wanted_amount: u64,
+    pub bump: u8,
 }
